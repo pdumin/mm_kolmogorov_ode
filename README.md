@@ -7,7 +7,7 @@ Simple application for generating latex code for ODE system (Kolmogorov equation
 #### Example
 
 From this mermaid snippet: 
-```mermaid
+```
 graph LR;
     a-- \lambda -->b;
     a-- \lambda -->c;
