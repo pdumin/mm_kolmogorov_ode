@@ -34,24 +34,3 @@ def create_adjacency_matrix(edges):
             adj_matrix.iloc[i, j] = str(weight+"_{" + f'{lambda_index}' + "}")  
     
     return adj_matrix, vertices
-
-# Входной текст
-text = """
-    A-- 0.5 -->B;
-    A-- 0.5 -->C;
-    B-- 0.5 -->D;
-    B-- 0.5 -->E;
-    C-- 0.5 -->E;
-    C-- 0.5 -->D;
-    D-- 0.5 -->F;
-    D-- 0.5 -->G;
-    E-- 0.5 -->G;
-    E-- 0.5 -->F;
-"""
-
-# # Парсинг рёбер
-# edges = parse_edges(text)
-
-# # Создание матрицы смежности
-# adj_matrix, vertices = create_adjacency_matrix
-
