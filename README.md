@@ -26,13 +26,13 @@ we can get latex code:
 
 system of equations:
 
-$$
+```math
 \begin{cases}
 \dfrac{dp_a}{dt} = -\lambda_{ab} p_{a}(t) - \lambda_{ac} p_{a}(t) \\[10pt]
 \dfrac{dp_b}{dt} = \lambda_{ab}  p_{a}(t) \\[10pt]
 \dfrac{dp_c}{dt} = \lambda_{ac}  p_{a}(t) 
 \end{cases}
-$$
+```
 
 and figure:
 
