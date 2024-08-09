@@ -1,4 +1,4 @@
-## Generate $\LaTeX$ code for Markov chains
+## Generate LaTeX code for Markov chains
 
 Simple application for generating latex code for ODE system (Kolmogorov equations). Supports only Markov chain with direct paths and no cycles. 
 
