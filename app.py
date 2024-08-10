@@ -67,7 +67,6 @@ if gen_matrix_btn:
         frame.columns = verticies
         frame.index = verticies
         ltx_code = generate_from_matrix(adj_matrix=frame)
-        
         json_tab, matrix_tab, latex_tab = lcol.tabs(['JSON', 'Matrix', 'LaTeX'])
         with latex_tab:
             st.code(ltx_code)
@@ -77,6 +76,4 @@ if gen_matrix_btn:
             st.json(edges, expanded=False)
         with matrix_tab: 
             st.table(frame)
-                    
         rcol.latex(ltx_code)
-    
