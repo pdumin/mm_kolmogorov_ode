@@ -56,3 +56,10 @@ In case of several installed streamlit versions use:
 .venv/bin/python -m streamlit run app.py
 ```
 
+#### Options 
+
+* From adjancecy matrix: build from mermaid code json, adjancecy matrix and the generate latex from matrix
+* From mermaid code: build latex from mermaid code directly (skip json and matrix)
+
+There are no any differences except order of positive and negative terms in final equations
+
