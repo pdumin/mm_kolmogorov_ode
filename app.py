@@ -69,14 +69,14 @@ if gen_matrix_btn:
         ltx_code = generate_from_matrix(adj_matrix=frame)
         
         json_tab, matrix_tab, latex_tab = lcol.tabs(['JSON', 'Matrix', 'LaTeX'])
+        with latex_tab:
+            st.code(ltx_code)
+            st.button('Copy to clipboard', on_click=latex_copy, args=(ltx_code, ))
         with json_tab:
             st.session_state['adj_matrix'] = frame.values
             st.json(edges, expanded=False)
         with matrix_tab: 
             st.table(frame)
-        with latex_tab:
-            st.code(ltx_code)
-            st.button('Copy to clipboard', on_click=latex_copy, args=(ltx_code, ))
                     
         rcol.latex(ltx_code)
     
