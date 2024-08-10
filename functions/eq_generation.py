@@ -1,7 +1,8 @@
-import pandas as pd
 import re
-from functools import reduce
 from collections import OrderedDict
+from functools import reduce
+
+import pandas as pd
 
 
 def generate_from_matrix(adj_matrix: pd.DataFrame) -> str:
@@ -58,22 +59,20 @@ def generate_from_mermaid(mermaid_code: str) -> str:
     lines = mermaid_code.split(';')[1:-1]
     verticies = set(reduce(lambda x, y: x+y, [(i.strip()[0]+i.strip()[-1]) for i in lines]))
 
-    terms = {k : v for k, v in zip(verticies, ['']*len(verticies))}
+    terms = dict(zip(verticies, [''] * len(verticies)))
     for i in lines:
-        out_state, intensity, in_state = re.sub(r'-->|--', '', i).strip().split()
-        if not terms.get(out_state):
-            terms[out_state] = f'\\dfrac{{dp_{out_state}}}{{dt}} = -{intensity}p_{{{out_state}}}(t) '
+        out_st, intensity, in_st = re.sub(r'-->|--', '', i).strip().split()
+        if not terms.get(out_st):
+            terms[out_st] = f'\\dfrac{{dp_{out_st}}}{{dt}} = -{intensity}p_{{{out_st}}}(t) '
         else:
-            terms[out_state] += f'- {intensity}p_{{{out_state}}}(t)'
-        # print(f'dp{out_state} = -{out_state}*p{out_state}')    
+            terms[out_st] += f'- {intensity}p_{{{out_st}}}(t)' 
 
-    # in_terms = []
     for i in lines:
-        out_state, intensity, in_state = re.sub(r'-->|--', '', i).strip().split()
-        if terms[in_state] == '':
-            terms[in_state] += f'\\dfrac{{dp_{in_state}}}{{dt}} = {intensity}p_{{{out_state}}}(t) '
+        out_st, intensity, in_st = re.sub(r'-->|--', '', i).strip().split()
+        if terms[in_st] == '':
+            terms[in_st] += f'\\dfrac{{dp_{in_st}}}{{dt}} = {intensity}p_{{{out_st}}}(t) '
         else:
-            terms[in_state] += f'+ {intensity}p_{{{out_state}}}(t) '
+            terms[in_st] += f'+ {intensity}p_{{{out_st}}}(t) '
     ode = OrderedDict(sorted(terms.items()))
     ltx_code = ''
     
