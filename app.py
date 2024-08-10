@@ -30,16 +30,16 @@ col1, col2 = st.columns([.4, .6])
 
 with col1:
     mermaid_code = """graph LR;
-    A-- 0.5 -->B;
-    A-- 0.5 -->C;
-    B-- 0.5 -->D;
-    B-- 0.5 -->E;
-    C-- 0.5 -->E;
-    C-- 0.5 -->D;
-    D-- 0.5 -->F;
-    D-- 0.5 -->G;
-    E-- 0.5 -->G;
-    E-- 0.5 -->F;
+    a-- 0.5 -->b;
+    a-- 0.5 -->c;
+    b-- 0.5 -->d;
+    b-- 0.5 -->e;
+    c-- 0.5 -->e;
+    c-- 0.5 -->d;
+    d-- 0.5 -->f;
+    d-- 0.5 -->g;
+    e-- 0.5 -->g;
+    e-- 0.5 -->f;
     """
     user_code = st_monaco(value=mermaid_code, height="300px", language="markdown")
     st.session_state['user_code'] = user_code
