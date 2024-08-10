@@ -3,3 +3,4 @@
 .vscode
 *.DS_Store
 equation_gen.ipynb
+from_mermaid.ipynb
